@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3C256C;">
     <div class="container">
         <a class="navbar-brand justify-content-center" href="#">
-            <img src="/img/logo.png" alt="" width="50">
+            <img src="/assets/img/logo.png" alt="" width="50">
             <span class="font-weight-bold" style="margin-top: 10px;">Electric Payment</span>
         </a>
 

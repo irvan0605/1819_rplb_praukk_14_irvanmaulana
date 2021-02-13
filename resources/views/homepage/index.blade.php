@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 text-center">
-                <img src="/img/logo.png" class="mt-4" alt="" width="200">
+                <img src="/assets/img/logo.png" class="mt-4" alt="" width="200">
             </div>
         </div>
         <div class="row justify-content-center mt-3">
