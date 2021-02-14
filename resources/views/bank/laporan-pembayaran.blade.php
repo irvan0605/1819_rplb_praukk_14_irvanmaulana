@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('bank.layouts.app')
 
 @section('title','Laporan Pembayaran | Electric Payment')
 
@@ -70,13 +70,12 @@
                         <th>No.</th>
                         <th>ID Pelanggan</th>
                         <th>Nama Pelanggan</th>
+                        <th>Tarif/Daya</th>
                         <th>Tanggal Bayar</th>
-                        <th>Bulan</th>
-                        <th>Tahun</th>
+                        <th>Jumlah Meter</th>
                         <th>Tagihan PLN</th>
                         <th>Biaya Admin</th>
                         <th>Total Bayar</th>
-                        <th>Metode Bayar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -84,25 +83,12 @@
                         <td>1</td>
                         <td>32153211010</td>
                         <td>Sigit Nugroho</td>
+                        <td>R1/900VA</td>
                         <td>2020-01-31 </td>
-                        <td>Januari</td>
-                        <td>2021</td>
+                        <td>100</td>
                         <td>Rp. 100.000,-</td>
                         <td>Rp. 2.000,-</td>
-                        <td>Rp. 100.000,-</td>
-                        <td>Mandiri</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>32153211045</td>
-                        <td>Ahmad Kurniawan</td>
-                        <td>2020-01-31 </td>
-                        <td>Januari</td>
-                        <td>2021</td>
-                        <td>Rp. 150.000,-</td>
-                        <td>Rp. 2.000,-</td>
-                        <td>Rp. 152.000,-</td>
-                        <td>BCA</td>
+                        <td>Rp. 102.000,-</td>
                     </tr>
                 </tbody>
             </table>

@@ -30,3 +30,14 @@ Route::view('tagihan', 'admin.tagihan')->name('tagihan');
 Route::view('riwayat', 'admin.riwayat')->name('riwayat');
 Route::view('laporan-tagihan', 'admin.laporan-tagihan')->name('laporan-tagihan');
 Route::view('laporan-pembayaran', 'admin.laporan-pembayaran')->name('laporan-pembayaran');
+
+Route::view('dashboard-bank', 'bank.index')->name('dashboard');
+Route::view('pembayaran', 'bank.pembayaran')->name('pembayaran');
+Route::view('riwayat-bank', 'bank.riwayat')->name('riwayat');
+Route::view('laporan-pembayaran-bank', 'bank.laporan-pembayaran')->name('laporan-pembayaran');
+
+Route::view('dashboard-pelanggan', 'pelanggan.index')->name('dashboard');
+Route::view('tagihan-pelanggan', 'pelanggan.tagihan')->name('tagihan');
+Route::view('bayar', 'pelanggan.bayar')->name('bayar');
+Route::view('tarif-pelanggan', 'pelanggan.tarif')->name('tarif');
+Route::view('riwayat-pelanggan', 'pelanggan.riwayat')->name('riwayat');

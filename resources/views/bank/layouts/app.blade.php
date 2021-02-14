@@ -24,14 +24,14 @@
 <body>
 
     <!-- Side Bar -->
-    @include('admin.layouts.sidebar')
+    @include('bank.layouts.sidebar')
     <!-- Akhir Side Bar -->
 
     <!-- Body -->
     <div class="page-content p-0" id="content">
 
         <!-- Navbar -->
-        @include('admin.layouts.navbar')
+        @include('bank.layouts.navbar')
         <!-- Akhir Navbar -->
 
         <!-- Konten -->
