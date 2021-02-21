@@ -12,12 +12,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/"></a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item mx-3">
                     <a class="nav-link {{Route::is('home') ? 'active' : ''}}" href="/">Home</a>
                 </li>

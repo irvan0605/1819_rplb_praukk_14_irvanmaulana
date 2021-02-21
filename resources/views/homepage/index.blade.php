@@ -21,12 +21,12 @@
         </div>
         <div class="row justify-content-center mt-3">
             <div class="col-sm-10 col-md-8 col-lg-6 text-center">
-                <p class="text-white fs-4">Kami Membantu Anda Mempercepat Proses Pembayaran Listrik Pasca Bayar</p>
+                <p class="text-white" style="font-size: 24px;">Kami Membantu Anda Mempercepat Proses Pembayaran Listrik Pasca Bayar</p>
             </div>
         </div>
         <div class="row justify-content-center mt-3">
             <div class="col-sm-10 col-md-8 col-lg-6 text-center">
-                <a href="/register" class="btn btn-primary rounded-pill px-5 py-2  fs-5 opacity">Daftar Sekarang</a>
+                <a href="/register" class="btn btn-primary rounded-pill px-5 py-2 opacity" style="font-size: 20px">Daftar Sekarang</a>
             </div>
         </div>
     </div>

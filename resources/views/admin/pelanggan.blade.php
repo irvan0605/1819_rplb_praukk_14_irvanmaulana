@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="container-fluid mb-5" style="min-height: 82.5vh;">
+<div class="container-fluid mb-5">
     <h3 class=" py-3">Kelola Pelanggan</h3>
 
     <div class="card">
@@ -18,11 +18,11 @@
                 </div>
             </div>
         </div>
-        <div class=" card-body">
-            <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
+        <div class="card-body">
+            <table class="table table-bordered table-striped" id="datatables" width="100%">
                 <thead>
                     <tr>
-                        <th>No.</th>
+                        <th id="klik">No.</th>
                         <th>ID Pelanggan</th>
                         <th>Nama Pelanggan</th>
                         <th>Alamat</th>
@@ -82,9 +82,15 @@
                         </td>
                     </tr>
                 </tbody>
+                <tfoot>
+
+                </tfoot>
             </table>
+
         </div>
     </div>
+
+
 </div>
 
 @endsection

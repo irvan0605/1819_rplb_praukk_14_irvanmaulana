@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-sm navbar-light bg-white shadow-sm" id="navbar">
 
     <!-- Toggle button -->
     <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded shadow-sm">
@@ -13,8 +13,8 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Pelanggan
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item " href="#">Logout</a>
+            <div class="dropdown-menu p-0" aria-labelledby="navbarDropdown" style="min-width: 0; max-width:5rem">
+                <a class="dropdown-item px-3 py-2" href="#">Logout</a>
             </div>
         </li>
     </ul>

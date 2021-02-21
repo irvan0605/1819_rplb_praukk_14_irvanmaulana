@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="container-fluid" style="min-height: 82.5vh;">
+<div class="container-fluid">
     <h3 class=" py-3">Pembayaran</h3>
 
     <div class="card">

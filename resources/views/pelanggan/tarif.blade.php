@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="container-fluid mb-5" style="min-height: 82.5vh;">
+<div class="container-fluid mb-5">
     <h3 class=" py-3">Tarif</h3>
 
     <div class="card">

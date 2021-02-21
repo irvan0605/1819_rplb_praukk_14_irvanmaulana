@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="container-fluid mb-5" style="min-height: 82.5vh;">
+<div class="container-fluid mb-5">
     <h3 class=" py-3">Laporan Pembayaran</h3>
 
     <div class="card mb-2">
@@ -89,7 +89,7 @@
                         <td>2021</td>
                         <td>Rp. 100.000,-</td>
                         <td>Rp. 2.000,-</td>
-                        <td>Rp. 100.000,-</td>
+                        <td>Rp. 102.000,-</td>
                         <td>Mandiri</td>
                     </tr>
                     <tr>
