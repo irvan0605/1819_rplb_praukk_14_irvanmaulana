@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="container-fluid mb-5">
+<div class="container-fluid">
     <h3 class=" py-3">Tagihan</h3>
 
     <div class="card mb-2">
@@ -16,22 +16,23 @@
             </div>
         </div>
         <div class="card-body">
-            <form>
+            <form action="{{ route('tagihan.cek') }}" method="POST">
+                @csrf
                 <div class="form-group row">
                     <label for="" class="col-sm-2 col-form-label">ID Pelanggan</label>
                     <div class="col-5 pr-0">
-                        <input type="number" class="form-control" placeholder="Masukkan ID Pelanggan">
-
+                        <input type="number" class="form-control" name="pelanggan" placeholder="Masukkan ID Pelanggan">
                     </div>
-                    <dic class="col-1 pl-0">
-                        <button class="btn btn-primary">Cari</button>
-                    </dic>
+                    <div class="col-1 pl-0">
+                        <button class="btn btn-primary" name="cari">Cari</button>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 
-    <div class="card mb-2">
+    @if (isset($_POST['cari']))
+    <div class="card mb-2 {{ !isset($_POST['cari']) ? 'd-none' : '' }}">
         <div class="card-header bg-white">
             <div class="row">
                 <div class="col">
@@ -46,22 +47,22 @@
                         <tr>
                             <th>ID Pelanggan</th>
                             <td class="px-3">:</td>
-                            <td>32153211010</td>
+                            <td>{{ $detail_pelanggan->pelanggan->nomor_meter }}</td>
                         </tr>
                         <tr>
                             <th>Nama</th>
                             <td class="px-3">:</td>
-                            <td>Sigit Nugroho</td>
+                            <td>{{ ucfirst($detail_pelanggan->pelanggan->nama_pelanggan) }}</td>
                         </tr>
                         <tr>
                             <th>Alamat</th>
                             <td class="px-3">:</td>
-                            <td>Jl. Durian No.8 Bekasi</td>
+                            <td>{{ $detail_pelanggan->pelanggan->alamat }}</td>
                         </tr>
                         <tr>
                             <th>Tarif/Daya</th>
                             <td class="px-3">:</td>
-                            <td>R1/900VA</td>
+                            <td>{{ $detail_pelanggan->pelanggan->tarif->kode_tarif }}</td>
                         </tr>
                     </table>
                 </div>
@@ -69,7 +70,7 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="card {{ !isset($_POST['cari']) ? 'd-none' : '' }} mb-5">
         <div class="card-header bg-white">
             <div class="row">
                 <div class="col">
@@ -77,11 +78,11 @@
                 </div>
             </div>
         </div>
-        <div class=" card-body">
+        <div class="card-body">
             <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
                 <thead>
                     <tr style="width: 100%;">
-                        <th>No.</th>
+                        <th id="klik">No.</th>
                         <th>ID Pelanggan</th>
                         <th>Bulan</th>
                         <th>Tahun</th>
@@ -94,24 +95,35 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                    $i = 1
+                    @endphp
+                    @foreach($detail_tagihan as $data)
                     <tr>
-                        <td>1</td>
-                        <td>32153211010</td>
-                        <td>Januari</td>
-                        <td>2021</td>
-                        <td>0</td>
-                        <td>100</td>
-                        <td>100</td>
-                        <td>Rp. 1.000,-</td>
-                        <td>Rp. 100.000,-</td>
+                        <td> {{ $i++ }} </td>
+                        <td>{{ $data->pelanggan->nomor_meter }}</td>
+                        <td>{{ ucfirst($data->bulan) }}</td>
+                        <td>{{ $data->tahun }}</td>
+                        <td>{{ $data->penggunaan->meter_awal }}</td>
+                        <td>{{ $data->penggunaan->meter_akhir }}</td>
+                        <td>{{ $data->jumlah_meter }}</td>
+                        <td>Rp. {{ number_format($data->pelanggan->tarif->tarif_perkwh, 0, ',','.') }},-</td>
+                        <td>Rp. {{ number_format($data->jumlah_bayar, 0, ',','.') }},-</td>
                         <td>
-                            <a href="bayar" class="btn btn-success">Bayar</a>
+                            <a href="{{ route('tagihan.detail', $data->id) }}" class="btn btn-primary">
+                                Bayar</i>
+                            </a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
+                <tfoot></tfoot>
             </table>
         </div>
     </div>
+
+
+    @endif
 
 
 </div>

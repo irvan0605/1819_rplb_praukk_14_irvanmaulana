@@ -11,7 +11,7 @@
         <div class="card-header bg-white">
             <div class="row">
                 <div class="col">
-                    <span style="font-size: 18px;">Pengajuan Pembayaran</span>
+                    <span style="font-size: 18px;">Verifikasi Pembayaran</span>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
             <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
                 <thead>
                     <tr style="width: 100%;">
-                        <th>No.</th>
+                        <th id="klik">No.</th>
                         <th>ID Pelanggan</th>
                         <th>Nama Pelanggan</th>
                         <th>Tanggal Bayar</th>
@@ -32,19 +32,33 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                    $i = 1
+                    @endphp
+
+                    @foreach($pembayaran as $data)
+
+                    @if ($data->status == 'diproses')
+
                     <tr>
-                        <td>1</td>
-                        <td>32153211010</td>
-                        <td>Sigit Nugroho</td>
-                        <td>2020-01-31 </td>
-                        <td>Januari</td>
-                        <td>2021</td>
-                        <td>Rp. 100.000,-</td>
-                        <td>Rp. 2.000,-</td>
-                        <td>Rp. 102.000,-</td>
-                        <td><a href="#" class="btn btn-primary">Verifikasi</a></td>
+                        <td> {{ $i++ }} </td>
+                        <td>{{ $data->pelanggan->nomor_meter }}</td>
+                        <td>{{ ucfirst($data->pelanggan->nama_pelanggan) }}</td>
+                        <td>{{ $data->tanggal_pembayaran }}</td>
+                        <td>{{ ucfirst($data->bulan_bayar) }}</td>
+                        <td>{{ $data->tahun_bayar }}</td>
+                        <td> Rp. {{ number_format($data->tagihan->jumlah_bayar, 0, ',','.') }} ,-</td>
+                        <td> Rp. {{ number_format($data->biaya_admin, 0, ',','.') }} ,-</td>
+                        <td> Rp. {{ number_format($data->total_bayar, 0, ',','.') }} ,-</td>
+                        <td>
+                            <a href="{{ route('pembayaran.detail', $data->id) }}" class="btn btn-primary">Verifikasi</i></a>
+                        </td>
                     </tr>
+
+                    @endif
+                    @endforeach
                 </tbody>
+                <tfoot></tfoot>
             </table>
         </div>
     </div>

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="container-fluid" >
+<div class="container-fluid">
     <h3 class=" py-3">Riwayat Pembayaran</h3>
 
     <div class="card">
@@ -19,44 +19,38 @@
             <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
                 <thead>
                     <tr style="width: 100%;">
-                        <th>No.</th>
+                        <th id="klik">No.</th>
                         <th>ID Pelanggan</th>
                         <th>Nama Pelanggan</th>
                         <th>Tanggal Bayar</th>
                         <th>Bulan</th>
                         <th>Tahun</th>
-                        <th>Tagihan PLN</th>
-                        <th>Biaya Admin</th>
                         <th>Total Bayar</th>
                         <th>Metode Bayar</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                    $i = 1
+                    @endphp
+                    @foreach($pembayaran as $data)
                     <tr>
-                        <td>1</td>
-                        <td>32153211010</td>
-                        <td>Sigit Nugroho</td>
-                        <td>2020-01-31 </td>
-                        <td>Januari</td>
-                        <td>2021</td>
-                        <td>Rp. 100.000,-</td>
-                        <td>Rp. 2.000,-</td>
-                        <td>Rp. 102.000,-</td>
-                        <td>Mandiri</td>
+                        <td> {{ $i++ }} </td>
+                        <td> {{ $data->nomor_meter }} </td>
+                        <td> {{ ucfirst($data->nama_pelanggan) }} </td>
+                        <td> {{ $data->tanggal_pembayaran }} </td>
+                        <td> {{ ucfirst($data->bulan_bayar) }} </td>
+                        <td> {{ $data->tahun_bayar }} </td>
+                        <td> Rp. {{ number_format($data->total_bayar, 0, ',','.') }},-</td>
+                        <td>Bank {{ ucfirst($data->nama_metode) }} </td>
+                        <td>
+                            <a href="{{ route('riwayat.detail', $data->id) }}" class="btn btn-primary">Detail</a>
+                        </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>32153211045</td>
-                        <td>Ahmad Kurniawan</td>
-                        <td>2020-01-31 </td>
-                        <td>Januari</td>
-                        <td>2021</td>
-                        <td>Rp. 150.000,-</td>
-                        <td>Rp. 2.000,-</td>
-                        <td>Rp. 152.000,-</td>
-                        <td>BCA</td>
-                    </tr>
+                    @endforeach
                 </tbody>
+                <tfoot></tfoot>
             </table>
         </div>
     </div>

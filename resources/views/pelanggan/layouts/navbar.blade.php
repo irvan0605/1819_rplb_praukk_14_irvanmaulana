@@ -11,10 +11,14 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Pelanggan
+                {{ ucfirst(Auth::user()->nama_user) }}
             </a>
             <div class="dropdown-menu p-0" aria-labelledby="navbarDropdown" style="min-width: 0; max-width:5rem">
-                <a class="dropdown-item px-3 py-2" href="#">Logout</a>
+                <a class="dropdown-item px-3 py-2" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Logout</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </div>
         </li>
     </ul>

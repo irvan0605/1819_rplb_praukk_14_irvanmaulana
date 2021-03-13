@@ -37,7 +37,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a href="tagihan-pelanggan" class="btn btn-primary box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
+                        <a href="{{ route('tagihan') }}" class="btn btn-primary box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a href="tarif-pelanggan" class="btn btn-danger box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
+                        <a href="{{ route('tarif') }}" class="btn btn-danger box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a href="riwayat-pelanggan" class="btn btn-info box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
+                        <a href="{{ route('riwayat') }}" class="btn btn-info box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
                     </div>
                 </div>
             </div>

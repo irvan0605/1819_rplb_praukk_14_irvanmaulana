@@ -14,7 +14,7 @@
                     <span style="font-size: 18px;">Data Penggunaan</span>
                 </div>
                 <div class="col text-right">
-                    <a href="tambah-inventaris" class="btn btn-warning">Input Penggunaan</a>
+                    <a href="{{ route('penggunaan.create') }}" class="btn btn-warning text-white"><i class="fa fa-plus"></i> Input Penggunaan</a>
                 </div>
             </div>
         </div>
@@ -22,84 +22,36 @@
             <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
                 <thead>
                     <tr style="width: 100%;">
-                        <th>No.</th>
+                        <th id="klik">No.</th>
                         <th>ID Pelanggan</th>
                         <th>Nama Pelanggan</th>
                         <th>Bulan</th>
                         <th>Tahun</th>
-                        <th>Tarif/Daya</th>
                         <th>Meter Awal</th>
                         <th>Meter Akhir</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                    $i = 1
+                    @endphp
+                    @foreach($penggunaan as $data)
                     <tr>
-                        <td>1</td>
-                        <td>32153211010</td>
-                        <td>Sigit Nugroho</td>
-                        <td>Januari</td>
-                        <td>2021</td>
-                        <td>R1/900VA</td>
-                        <td>0</td>
-                        <td>100</td>
-                        <td><a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
+                        <td> {{ $i++ }} </td>
+                        <td> {{ $data->pelanggan->nomor_meter }} </td>
+                        <td> {{ ucfirst($data->pelanggan->nama_pelanggan) }} </td>
+                        <td> {{ ucfirst($data->penggunaan->bulan) }} </td>
+                        <td> {{ $data->penggunaan->tahun }} </td>
+                        <td> {{ $data->penggunaan->meter_awal }} </td>
+                        <td> {{ $data->penggunaan->meter_akhir }} </td>
+                        <td><a href="{{ route('penggunaan.edit', $data->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                            <a href="{{ route('penggunaan.delete', $data->id) }}" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ?');"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>32153211045</td>
-                        <td>Ahmad Kurniawan</td>
-                        <td>Januari</td>
-                        <td>2021</td>
-                        <td>R3/900VA</td>
-                        <td>0</td>
-                        <td>100</td>
-                        <td><a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>32153211037</td>
-                        <td>Harun</td>
-                        <td>Januari</td>
-                        <td>2021</td>
-                        <td>R2/450VA</td>
-                        <td>0</td>
-                        <td>100</td>
-                        <td><a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>32153211032</td>
-                        <td>Bagas</td>
-                        <td>Januari</td>
-                        <td>2021</td>
-                        <td>R1/450VA</td>
-                        <td>0</td>
-                        <td>100</td>
-                        <td><a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>32153211054</td>
-                        <td>Ferdiansyah</td>
-                        <td>Januari</td>
-                        <td>2021</td>
-                        <td>R1/900VA</td>
-                        <td>0</td>
-                        <td>100</td>
-                        <td><a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
+                <tfoot></tfoot>
             </table>
         </div>
     </div>

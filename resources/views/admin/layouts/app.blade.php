@@ -34,6 +34,8 @@
         @include('admin.layouts.navbar')
         <!-- Akhir Navbar -->
 
+
+
         <!-- Konten -->
         @yield('content')
         <!-- Akhir Konten -->
@@ -51,15 +53,15 @@
 
 
 
+    @include('sweetalert::alert')
 
-    
     <!-- JQUERY -->
     <script src="/assets/jquery/jquery-3.5.1.js"></script>
 
     <!-- End Jquery
 
     <!-- Bootstrap-->
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Toggle Sidebar -->
     <script>
@@ -67,7 +69,7 @@
         $(function() {
             $('#sidebarCollapse').on('click', function() {
                 $('#sidebar, #content').toggleClass('active');
-                setTimeout(function(){ 
+                setTimeout(function() {
                     row.click();
                     row.click();
                 }, 250);
@@ -83,8 +85,31 @@
             $('#datatables').DataTable({
                 "scrollX": true
             });
-            
-        });
+
+            $(document).on('change', '#pelanggan_id', function() {
+                // console.log('Data berubah');
+
+                var pelanggan = $(this).val();
+                var meter = $('#meter_awal');
+                // var op = "";
+                $.ajax({
+                    type: 'get',
+                    url: "{{ route('cari.meter') }}",
+                    data: {
+                        id: pelanggan
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        meter.val(data);
+                    },
+                    error: function() {
+
+                    }
+
+                });
+
+            });
+        })
     </script>
 
     <!-- End Datatables -->
@@ -92,7 +117,6 @@
 
     {{-- My Script --}}
     <script>
-
         const navbar = $('#navbar').innerHeight();
         const footer = $('#footer').innerHeight();
         const sidebar = $('#sidebar').innerHeight();

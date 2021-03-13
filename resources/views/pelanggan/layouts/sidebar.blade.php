@@ -11,28 +11,35 @@
     <ul class="nav flex-column mb-0" style="background-color: #3c256c;">
         <li class="nav-item">
             <div class="px-2 pb-1">
-                <a href="dashboard-pelanggan" class="nav-link text-white rounded {{Route::is('dashboard') ? 'font-weight-bold btn-primary' : ''}}">
+                <a href="{{ route('dashboard') }}" class="nav-link text-white rounded {{Route::is('dashboard') ? 'font-weight-bold btn-primary' : ''}}">
                     <i class="fas fa-tachometer-alt mr-3 text-white fa-fw"></i>Dashboard
                 </a>
             </div>
         </li>
         <li class="nav-item">
             <div class="px-2 pb-1">
-                <a href="tagihan-pelanggan" class="nav-link text-white rounded {{Route::is('tagihan') || Route::is('bayar') ? 'font-weight-bold btn-primary' : ''}}">
-                    <i class="fa fa-money-check-alt mr-3 text-white fa-fw"></i>Tagihan
-                </a>
-            </div>
-        </li>
-        <li class="nav-item">
-            <div class="px-2 pb-1">
-                <a href="tarif-pelanggan" class="nav-link text-white rounded {{Route::is('tarif') ? 'font-weight-bold btn-primary' : ''}}">
+                <a href="{{ route('tarif') }}" class="nav-link text-white rounded {{Route::is('tarif') ? 'font-weight-bold btn-primary' : ''}}">
                     <i class="fas fa-wallet mr-3 text-white fa-fw"></i>Tarif
                 </a>
             </div>
         </li>
         <li class="nav-item">
             <div class="px-2 pb-1">
-                <a href="riwayat-pelanggan" class="nav-link text-white rounded {{Route::is('riwayat') ? 'font-weight-bold btn-primary' : ''}}">
+                <a href="{{ route('tagihan') }}" class="nav-link text-white rounded {{Route::is('tagihan') || Route::is('bayar') || Route::is('tagihan.cek') || Route::is('tagihan.detail') ? 'font-weight-bold btn-primary' : ''}}">
+                    <i class="fa fa-money-check-alt mr-3 text-white fa-fw"></i>Tagihan
+                </a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <div class="px-2 pb-1">
+                <a href="{{ route('transaksi') }}" class="nav-link text-white rounded {{Route::is('transaksi') || Route::is('transaksi.konfirmasi') ? 'font-weight-bold btn-primary' : ''}}">
+                    <i class="fas fa-archive mr-3 text-white fa-fw"></i>Transaksi
+                </a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <div class="px-2 pb-1">
+                <a href="{{ route('riwayat') }}" class="nav-link text-white rounded {{Route::is('riwayat') || Route::is('riwayat.detail') ? 'font-weight-bold btn-primary' : ''}}">
                     <i class="fas fa-history mr-3 text-white fa-fw"></i>Riwayat Transaksi
                 </a>
             </div>

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="container-fluid mb-5" >
+<div class="container-fluid mb-5">
     <h3 class=" py-3">Kelola Tarif</h3>
 
     <div class="card">
@@ -14,7 +14,7 @@
                     <span style="font-size: 18px;">Data Tarif</span>
                 </div>
                 <div class="col text-right">
-                    <a href="tambah-inventaris" class="btn btn-warning">Tambah Tarif</a>
+                    <a href="{{ route('tarif.create') }}" class="btn btn-warning text-white"><i class="fa fa-plus"></i> Tambah Tarif</a>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
             <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
                 <thead>
                     <tr>
-                        <th>No.</th>
+                        <th id="klik">No.</th>
                         <th>Kode Tarif</th>
                         <th>Golongan</th>
                         <th>Daya</th>
@@ -31,57 +31,23 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                    $i = 1
+                    @endphp
+                    @foreach($data as $tarif)
                     <tr>
-                        <td>1</td>
-                        <td>R3/450VA</td>
-                        <td>R3</td>
-                        <td>450VA</td>
-                        <td>Rp. 1.000,-</td>
-                        <td><a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
+                        <td> {{ $i++ }} </td>
+                        <td>{{ $tarif->kode_tarif }}</td>
+                        <td>{{ $tarif->golongan }}</td>
+                        <td>{{ $tarif->daya }}</td>
+                        <td> Rp. {{ number_format($tarif->tarif_perkwh, 0, ',','.') }} ,-</td>
+                        <td><a href="{{ route('tarif.edit', $tarif->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                            <a href="{{ route('tarif.delete', $tarif->id) }}" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ?');"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>R1/900VA</td>
-                        <td>R1</td>
-                        <td>900VA</td>
-                        <td>Rp. 1.500,-</td>
-                        <td><a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>R2/450VA</td>
-                        <td>R2</td>
-                        <td>450VA</td>
-                        <td>Rp. 750,-</td>
-                        <td><a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>R1/450VA</td>
-                        <td>R1</td>
-                        <td>450VA</td>
-                        <td>Rp. 1.000,-</td>
-                        <td><a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>R3/900VA</td>
-                        <td>R3</td>
-                        <td>900VA</td>
-                        <td>Rp. 1.400,-</td>
-                        <td><a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
+                <tfoot></tfoot>
             </table>
         </div>
     </div>

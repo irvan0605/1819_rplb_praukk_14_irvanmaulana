@@ -37,7 +37,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a href="pelanggan" class="btn btn-primary box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
+                        <a href="{{ route('pelanggan')}}" class="btn btn-primary box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a href="tarif" class="btn btn-primary box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
+                        <a href="{{ route('tarif')}}" class="btn btn-primary box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a href="penggunaan" class="btn btn-primary box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
+                        <a href="{{ route('penggunaan')}}" class="btn btn-primary box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a href="tagihan" class="btn btn-primary box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
+                        <a href="{{ route('tagihan')}}" class="btn btn-primary box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a href="riwayat" class="btn btn-primary box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
+                        <a href="{{ route('riwayat')}}" class="btn btn-primary box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -122,7 +122,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a href="laporan-tagihan" class="btn btn-primary box-footer text-dark" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
+                        <a href="{{route('laporan.tagihan')}}" class="btn btn-primary box-footer text-dark" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -139,7 +139,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a href="laporan-pembayaran" class="btn btn-primary box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
+                        <a href="{{route('laporan.pembayaran')}}" class="btn btn-primary box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
                     </div>
                 </div>
             </div>

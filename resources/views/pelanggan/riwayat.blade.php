@@ -19,36 +19,46 @@
             <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
                 <thead>
                     <tr style="width: 100%;">
-                        <th>No.</th>
+                        <th id="klik">No.</th>
                         <th>ID Pelanggan</th>
                         <th>Nama Pelanggan</th>
                         <th>Tanggal Bayar</th>
                         <th>Bulan</th>
                         <th>Tahun</th>
                         <th>Total Bayar</th>
-                        <th>Metode Bayar</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                    $i = 1
+                    @endphp
+                    @foreach($pembayaran as $data)
+                    @if($data->status =='sukses' || $data->status =='diproses')
                     <tr>
-                        <td>1</td>
-                        <td>32153211010</td>
-                        <td>Sigit Nugroho</td>
-                        <td>2020-01-31 </td>
-                        <td>Januari</td>
-                        <td>2021</td>
-                        <td>Rp. 102.000,-</td>
-                        <td>Mandiri</td>
+                        <td> {{ $i++ }} </td>
+                        <td> {{ $data->pelanggan->nomor_meter }} </td>
+                        <td> {{ ucfirst($data->pelanggan->nama_pelanggan) }} </td>
+                        <td> {{ $data->tanggal_pembayaran }} </td>
+                        <td> {{ ucfirst($data->bulan_bayar) }} </td>
+                        <td> {{ $data->tahun_bayar }} </td>
+                        <td> Rp. {{ number_format($data->total_bayar, 0, ',','.') }},-</td>
                         <td>
-                            <a href="" class="btn btn-success">Sukses</a>
+                            @if ($data->status == 'diproses')
+                            <span class="badge badge-info">Menunggu Konfirmasi</span>
+                            @else
+                            <span class="badge badge-success">Sukses</span>
+                            @endif
                         </td>
                         <td>
-                            <a href="" class="btn btn-primary">Cetak</a>
+                            <a href="{{ route('riwayat.detail', $data->id) }}" class="btn btn-primary">Detail</a>
                         </td>
                     </tr>
+                    @endif
+                    @endforeach
                 </tbody>
+                <tfoot></tfoot>
             </table>
         </div>
     </div>

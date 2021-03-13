@@ -11,28 +11,28 @@
     <ul class="nav flex-column mb-0" style="background-color: #3c256c;">
         <li class="nav-item">
             <div class="px-2 pb-1">
-                <a href="dashboard-bank" class="nav-link text-white rounded {{Route::is('dashboard') ? 'font-weight-bold btn-primary' : ''}}">
+                <a href="{{ route('dashboard') }}" class="nav-link text-white rounded {{Route::is('dashboard') ? 'font-weight-bold btn-primary' : ''}}">
                     <i class="fas fa-tachometer-alt mr-3 text-white fa-fw"></i>Dashboard
                 </a>
             </div>
         </li>
         <li class="nav-item">
             <div class="px-2 pb-1">
-                <a href="pembayaran" class="nav-link text-white rounded {{Route::is('pembayaran') ? 'font-weight-bold btn-primary' : ''}}">
+                <a href="{{ route('pembayaran') }}" class="nav-link text-white rounded {{Route::is('pembayaran') || Route::is('pembayaran.detail') ? 'font-weight-bold btn-primary' : ''}}">
                     <i class="fa fa-wallet mr-3 text-white fa-fw"></i>Pembayaran
                 </a>
             </div>
         </li>
         <li class="nav-item">
             <div class="px-2 pb-1">
-                <a href="riwayat-bank" class="nav-link text-white rounded {{Route::is('riwayat') ? 'font-weight-bold btn-primary' : ''}}">
+                <a href="{{ route('riwayat') }}" class="nav-link text-white rounded {{Route::is('riwayat') || Route::is('riwayat.detail') ? 'font-weight-bold btn-primary' : ''}}">
                     <i class="fas fa-history mr-3 text-white fa-fw"></i>Riwayat Pembayaran
                 </a>
             </div>
         </li>
         <li class="nav-item">
             <div class="px-2 pb-1">
-                <a href="laporan-pembayaran-bank" class="nav-link text-white rounded {{Route::is('laporan-pembayaran') ? 'font-weight-bold btn-primary' : ''}}">
+                <a href="{{route('laporan.pembayaran')}}" class="nav-link text-white rounded {{Route::is('laporan.pembayaran') || Route::is('laporan.pembayaran.cek') ? 'font-weight-bold btn-primary' : ''}}">
                     <i class="fas fa-money-check-alt mr-3 text-white fa-fw"></i>Laporan Pembayaran
                 </a>
             </div>

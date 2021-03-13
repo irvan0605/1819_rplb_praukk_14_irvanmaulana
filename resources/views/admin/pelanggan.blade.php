@@ -14,7 +14,7 @@
                     <span style="font-size: 18px;">Data Pelanggan</span>
                 </div>
                 <div class="col text-right">
-                    <a href="tambah-inventaris" class="btn btn-warning">Tambah Pelanggan</a>
+                    <a href="{{route('pelanggan.create')}}" class="btn btn-warning text-white"><i class="fa fa-plus"></i> Tambah Pelanggan</a>
                 </div>
             </div>
         </div>
@@ -27,60 +27,25 @@
                         <th>Nama Pelanggan</th>
                         <th>Alamat</th>
                         <th>Tarif/Daya</th>
-                        <th>Aksi</th>
+                        <th style="width: 12%;">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                    $i = 1
+                    @endphp
+                    @foreach($data as $pelanggan)
                     <tr>
-                        <td>1</td>
-                        <td>32153211010</td>
-                        <td>Sigit Nugroho</td>
-                        <td>Jl. Durian No.8 Bekasi</td>
-                        <td>R3/450VA</td>
-                        <td><a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
+                        <td> {{ $i++ }} </td>
+                        <td>{{ $pelanggan->nomor_meter }}</td>
+                        <td>{{ ucfirst($pelanggan->nama_pelanggan) }}</td>
+                        <td>{{ $pelanggan->alamat }}</td>
+                        <td>{{ $pelanggan->tarif->kode_tarif  }}</td>
+                        <td><a href="{{ route('pelanggan.edit', $pelanggan->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                            <a href="{{ route('pelanggan.delete', $pelanggan->id) }}" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ?');"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>32153211045</td>
-                        <td>Ahmad Kurniawan</td>
-                        <td>Jl. Mangga No.8 Bekasi</td>
-                        <td>R3/450VA</td>
-                        <td><a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>32153211037</td>
-                        <td>Harun</td>
-                        <td>Jl. Anggur No.8 Bekasi</td>
-                        <td>R3/450VA</td>
-                        <td><a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>32153211032</td>
-                        <td>Bagas</td>
-                        <td>Jl. Jeruk No.8 Bekasi</td>
-                        <td>R3/450VA</td>
-                        <td><a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>32153211054</td>
-                        <td>Ferdiansyah</td>
-                        <td>Jl. Kamboja No.8 Bekasi</td>
-                        <td>R3/450VA</td>
-                        <td><a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
                 <tfoot>
 

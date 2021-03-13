@@ -26,5 +26,22 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         //
+        Gate::define('admin', function ($user) {
+            return $user->level_id == 1;
+        });
+        Gate::define('bank', function ($user) {
+            return $user->level_id == 2;
+        });
+        Gate::define('pelanggan', function ($user) {
+            return $user->level_id == 3;
+        });
+
+        Gate::define('viewLarecipe', function ($user) {
+            if ($user->level_id == 1) {
+                return true;
+            } else {
+                return abort(403);
+            }
+        });
     }
 }

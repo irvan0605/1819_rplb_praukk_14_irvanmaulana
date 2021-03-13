@@ -1,5 +1,12 @@
 <?php
 
+/** 
+ * Model User untuk menghubungkan kedalam database berkaitan dengan data user.
+ * @author Irvan Maulana.
+ * @version 1.0.
+ * @copyright 2021.
+ */
+
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -12,32 +19,25 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * Mendaftarkan atribut yang bisa diisi ketika insert atau update ke database.
      *
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
+        'nama_user',
+        'username',
         'password',
+        'nomor_telepon',
+        'foto',
+        'level_id',
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
-     *
+     * Menyembunyikan atribut untuk array.
+     * 
      * @var array
      */
     protected $hidden = [
         'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
     ];
 }

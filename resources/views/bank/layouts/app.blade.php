@@ -34,6 +34,7 @@
         @include('bank.layouts.navbar')
         <!-- Akhir Navbar -->
 
+
         <!-- Konten -->
         @yield('content')
         <!-- Akhir Konten -->
@@ -49,6 +50,7 @@
     <!-- Akhir Body-->
 
 
+    @include('sweetalert::alert')
 
 
     <!-- JQUERY -->
@@ -57,13 +59,18 @@
     <!-- End Jquery
 
     <!-- Bootstrap-->
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Toggle Sidebar -->
     <script>
+        var row = document.querySelector('#klik');
         $(function() {
             $('#sidebarCollapse').on('click', function() {
                 $('#sidebar, #content').toggleClass('active');
+                setTimeout(function() {
+                    row.click();
+                    row.click();
+                }, 250);
             });
         });
     </script>
@@ -84,14 +91,13 @@
 
     {{-- My Script --}}
     <script>
-
         const navbar = $('#navbar').innerHeight();
         const footer = $('#footer').innerHeight();
         const sidebar = $('#sidebar').innerHeight();
 
         $('.container-fluid').css('min-height', sidebar - (navbar + footer));
     </script>
-    
+
 </body>
 
 </html>
