@@ -17,7 +17,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use PDF;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Pelanggan;
 use App\Models\Tagihan;
 

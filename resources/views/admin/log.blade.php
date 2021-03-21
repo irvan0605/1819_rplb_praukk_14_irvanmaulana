@@ -16,46 +16,45 @@
             </div>
         </div>
         <div class="card-body">
-            <table class="table table-bordered table-striped" id="datatables" width="100%">
-                <thead>
-                    <tr>
-                        <th id="klik">No.</th>
-                        <th>Nama Log</th>
-                        <th>Tabel</th>
-                        <th>Id Ref</th>
-                        <th>Deskripsi</th>
-                        <th>Role</th>
-                        <th>Nama User</th>
-                        <th>Waktu</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php
-                    $i = 1
-                    @endphp
-                    @foreach($log as $data)
-                    <tr>
-                        <td> {{ $i++ }} </td>
-                        <td>{{ $data->nama_log }}</td>
-                        <td>{{ $data->tabel }}</td>
-                        <td>{{ $data->id_referensi }}</td>
-                        <td>{{ $data->deskripsi }}</td>
-                        <td>{{ ucfirst($data->nama_level) }}</td>
-                        <td>{{ ucfirst($data->nama_user) }}</td>
-                        <td>{{ $data->created_at }}</td>
-                        <td>
-                            <a href="{{ route('log.delete', $data->id) }}" class="btn btn-danger">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-                <tfoot>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped" id="datatables" width="100%">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Nama Log</th>
+                            <th>Tabel</th>
+                            <th>Id Ref</th>
+                            <th>Deskripsi</th>
+                            <th>Role</th>
+                            <th>Nama User</th>
+                            <th>Waktu</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($log as $data)
+                        <tr>
+                            <td> {{ $loop->iteration }} </td>
+                            <td>{{ $data->nama_log }}</td>
+                            <td>{{ $data->tabel }}</td>
+                            <td>{{ $data->id_referensi }}</td>
+                            <td>{{ $data->deskripsi }}</td>
+                            <td>{{ ucfirst($data->nama_level) }}</td>
+                            <td>{{ ucfirst($data->nama_user) }}</td>
+                            <td>{{ $data->created_at }}</td>
+                            <td>
+                                <a href="{{ route('log.delete', $data->id) }}" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot>
 
-                </tfoot>
-            </table>
+                    </tfoot>
+                </table>
+            </div>
 
         </div>
     </div>

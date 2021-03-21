@@ -19,40 +19,39 @@
             </div>
         </div>
         <div class=" card-body">
-            <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
-                <thead>
-                    <tr style="width: 100%;">
-                        <th id="klik">No.</th>
-                        <th>ID Pelanggan</th>
-                        <th>Nama Pelanggan</th>
-                        <th>Bulan</th>
-                        <th>Tahun</th>
-                        <th>Meter Awal</th>
-                        <th>Meter Akhir</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php
-                    $i = 1
-                    @endphp
-                    @foreach($penggunaan as $data)
-                    <tr>
-                        <td> {{ $i++ }} </td>
-                        <td> {{ $data->pelanggan->nomor_meter }} </td>
-                        <td> {{ ucfirst($data->pelanggan->nama_pelanggan) }} </td>
-                        <td> {{ ucfirst($data->penggunaan->bulan) }} </td>
-                        <td> {{ $data->penggunaan->tahun }} </td>
-                        <td> {{ $data->penggunaan->meter_awal }} </td>
-                        <td> {{ $data->penggunaan->meter_akhir }} </td>
-                        <td><a href="{{ route('penggunaan.edit', $data->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                            <a href="{{ route('penggunaan.delete', $data->id) }}" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ?');"><i class="fas fa-trash"></i></a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-                <tfoot></tfoot>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>ID Pelanggan</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Bulan</th>
+                            <th>Tahun</th>
+                            <th>Meter Awal</th>
+                            <th>Meter Akhir</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($penggunaan as $data)
+                        <tr>
+                            <td> {{ $loop->iteration }} </td>
+                            <td> {{ $data->pelanggan->nomor_meter }} </td>
+                            <td> {{ $data->pelanggan->nama_pelanggan }} </td>
+                            <td> {{ $data->penggunaan->bulan }} </td>
+                            <td> {{ $data->penggunaan->tahun }} </td>
+                            <td> {{ $data->penggunaan->meter_awal }} </td>
+                            <td> {{ $data->penggunaan->meter_akhir }} </td>
+                            <td><a href="{{ route('penggunaan.edit', $data->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('penggunaan.delete', $data->id) }}" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ?');"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
         </div>
     </div>
 

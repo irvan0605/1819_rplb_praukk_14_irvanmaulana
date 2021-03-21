@@ -20,7 +20,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Tarif;
 use App\Models\Pelanggan;
 use App\Models\Penggunaan;

@@ -65,4 +65,12 @@ class Pembayaran extends Model
     {
         return $this->belongsTo(Pelanggan::class);
     }
+
+    /**
+     * Fungsi untuk membuat huruf pertama kapital.
+     */
+    public function getBulanbayarAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }

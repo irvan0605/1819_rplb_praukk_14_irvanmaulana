@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Exception;
 use PDF;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Pembayaran;
 use App\Models\Penggunaan;
 use App\Models\Tagihan;
@@ -404,7 +404,7 @@ class PembayaranController extends Controller
         }
     }
 
-    /**
+    /** 
      * Mencetak data laporan pembayaran menjadi pdf.
      *
      * @param  \Illuminate\Http\Request  $request

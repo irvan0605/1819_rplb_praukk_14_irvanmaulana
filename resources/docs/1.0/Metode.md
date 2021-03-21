@@ -4,6 +4,7 @@
 
 -   [Table](#section-1)
 -   [Pembayaran](#section-2)
+-   [getNamaMetodeAttribute](#section-3)
 
 <larecipe-card type="primary" rounded>
 Model ini untuk menghubungkan kedalam database berkaitan dengan data metode.
@@ -42,9 +43,29 @@ Code ini untuk merelasikan ke model pembayaran.
 
 ```php
 public function pembayaran()
-    {
-        return $this->hasOne(Pembayaran::class);
-    }
+{
+    return $this->hasOne(Pembayaran::class);
+}
+```
+
+---
+
+<a name="section-3"></a>
+
+### getNamaMetodeAttribute
+
+---
+
+<larecipe-card type="danger" rounded>
+Code ini untuk membuat huruf pertama kapital.
+</larecipe-card>
+---
+
+```php
+ public function getNamametodeAttribute($value)
+{
+    return ucfirst($value);
+}
 ```
 
 ---

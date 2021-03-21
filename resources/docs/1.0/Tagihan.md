@@ -7,6 +7,7 @@
 -   [Pelanggan](#section-3)
 -   [Penggunaan](#section-4)
 -   [Pembayaran](#section-5)
+-   [getBulanAttribute](#section-6)
 
 <larecipe-card type="primary" rounded>
 Model ini untuk menghubungkan kedalam database berkaitan dengan data tagihan.
@@ -112,6 +113,26 @@ Code ini untuk merelasikan ke model pembayaran.
 public function pembayaran()
 {
     return $this->hasOne(Pembayaran::class);
+}
+```
+
+---
+
+<a name="section-6"></a>
+
+### getBulanAttribute
+
+---
+
+<larecipe-card type="info" rounded>
+Code ini untuk membuat huruf pertama kapital.
+</larecipe-card>
+---
+
+```php
+public function getBulanAttribute($value)
+{
+    return ucfirst($value);
 }
 ```
 

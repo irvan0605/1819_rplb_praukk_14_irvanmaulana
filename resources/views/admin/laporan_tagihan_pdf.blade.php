@@ -41,22 +41,19 @@
             <th>Status</th>
         </tr>
 
-        @php
-        $i = 1
-        @endphp
         @foreach($tagihan as $data)
         <tr>
-            <td> {{ $i++ }} </td>
+            <td> {{ $loop->iteration }} </td>
             <td>{{ $data->pelanggan->nomor_meter }}</td>
-            <td>{{ ucfirst($data->pelanggan->nama_pelanggan) }}</td>
+            <td>{{ $data->pelanggan->nama_pelanggan }}</td>
             <td>{{ $data->pelanggan->tarif->kode_tarif }}</td>
             <td>{{ $data->jumlah_meter }}</td>
-            <td>Rp. {{ number_format($data->jumlah_bayar, 0, ',','.') }},-</td>
+            <td>@currency($data->jumlah_bayar)</td>
             <td>
                 @if($data->status =='dibayar')
-                {{ ucfirst($data->status)}}
+                Dibayar
                 @else
-                {{ ucfirst($data->status)}}
+                Belum Bayar
                 @endif
             </td>
         </tr>

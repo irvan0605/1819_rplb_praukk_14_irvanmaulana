@@ -19,36 +19,35 @@
             </div>
         </div>
         <div class=" card-body">
-            <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
-                <thead>
-                    <tr>
-                        <th id="klik">No.</th>
-                        <th>Kode Tarif</th>
-                        <th>Golongan</th>
-                        <th>Daya</th>
-                        <th>Tarif/kWh</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php
-                    $i = 1
-                    @endphp
-                    @foreach($data as $tarif)
-                    <tr>
-                        <td> {{ $i++ }} </td>
-                        <td>{{ $tarif->kode_tarif }}</td>
-                        <td>{{ $tarif->golongan }}</td>
-                        <td>{{ $tarif->daya }}</td>
-                        <td> Rp. {{ number_format($tarif->tarif_perkwh, 0, ',','.') }} ,-</td>
-                        <td><a href="{{ route('tarif.edit', $tarif->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                            <a href="{{ route('tarif.delete', $tarif->id) }}" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ?');"><i class="fas fa-trash"></i></a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-                <tfoot></tfoot>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Kode Tarif</th>
+                            <th>Golongan</th>
+                            <th>Daya</th>
+                            <th>Tarif/kWh</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($data as $tarif)
+                        <tr>
+                            <td> {{ $loop->iteration }} </td>
+                            <td>{{ $tarif->kode_tarif }}</td>
+                            <td>{{ $tarif->golongan }}</td>
+                            <td>{{ $tarif->daya }}</td>
+                            <td>@currency($tarif->tarif_perkwh)</td>
+                            <td><a href="{{ route('tarif.edit', $tarif->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('tarif.delete', $tarif->id) }}" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ?');"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
         </div>
     </div>
 

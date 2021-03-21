@@ -32,6 +32,9 @@ Auth::routes();
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
+Route::post('/profile/update', [DashboardController::class, 'update'])->name('profile.update');
+
 Route::get('/tarif', [TarifController::class, 'index'])->name('tarif');
 Route::get('/tarif/create', [TarifController::class, 'create'])->name('tarif.create');
 Route::post('/tarif/store', [TarifController::class, 'store'])->name('tarif.store');

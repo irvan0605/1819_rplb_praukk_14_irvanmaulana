@@ -61,4 +61,16 @@ class Tagihan extends Model
     {
         return $this->hasOne(Pembayaran::class);
     }
+
+    /**
+     * Fungsi untuk membuat format rupiah.
+     */
+
+    /**
+     * Fungsi untuk membuat huruf pertama kapital.
+     */
+    public function getBulanAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }

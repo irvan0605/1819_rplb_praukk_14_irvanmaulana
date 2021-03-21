@@ -60,4 +60,12 @@ class Penggunaan extends Model
     {
         return sprintf("%08d", $value);
     }
+
+    /**
+     * Fungsi untuk membuat huruf pertama kapital.
+     */
+    public function getBulanAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }

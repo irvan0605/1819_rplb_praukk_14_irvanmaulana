@@ -8,6 +8,7 @@
 -   [Penggunaan](#section-4)
 -   [Tagihan](#section-5)
 -   [Pembayaran](#section-6)
+-   [getNamapelangganAttribute](#section-7)
 
 <larecipe-card type="primary" rounded>
 Model ini untuk menghubungkan ke dalam database berkaitan dengan data pelanggan.
@@ -134,3 +135,24 @@ public function pembayaran()
 ```
 
 ---
+
+<a name="section-7"></a>
+
+### getNamapelangganAttribute
+
+---
+
+<larecipe-card type="info" rounded>
+Code ini untuk membuat huruf pertama kapital.
+</larecipe-card>
+---
+
+```php
+public function getNamapelangganAttribute($value)
+{
+    return ucfirst($value);
+}
+```
+
+---
+

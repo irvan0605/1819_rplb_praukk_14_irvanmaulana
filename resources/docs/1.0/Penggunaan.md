@@ -7,6 +7,7 @@
 -   [Pelanggan](#section-3)
 -   [Tagihan](#section-4)
 -   [Format Meter](#section-5)
+-   [getBulanAttribute](#section-6)
 
 <larecipe-card type="primary" rounded>
 Model ini untuk menghubungkan kedalam database berkaitan dengan data penggunaan.
@@ -18,7 +19,7 @@ Model ini untuk menghubungkan kedalam database berkaitan dengan data penggunaan.
 
 ### Table
 
----
+--- 
 
 <larecipe-card type="warning" rounded>
 Code ini mengacu kepada tabel penggunaan dari database.
@@ -111,6 +112,26 @@ Code ini untuk membuat format nomor meter.
 public function formatMeter($value)
 {
     return sprintf("%08d", $value);
+}
+```
+
+---
+
+<a name="section-6"></a>
+
+### getBulanAttribute
+
+---
+
+<larecipe-card type="info" rounded>
+Code ini untuk membuat huruf pertama kapital.
+</larecipe-card>
+---
+
+```php
+public function getBulanAttribute($value)
+{
+    return ucfirst($value);
 }
 ```
 

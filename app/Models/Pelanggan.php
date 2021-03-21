@@ -66,4 +66,12 @@ class Pelanggan extends Model
     {
         return $this->hasMany(Pembayaran::class);
     }
+
+    /**
+     * Fungsi untuk membuat huruf pertama kapital.
+     */
+    public function getNamapelangganAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }

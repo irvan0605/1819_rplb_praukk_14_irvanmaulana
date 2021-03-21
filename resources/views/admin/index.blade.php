@@ -20,7 +20,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a href="#" class="btn btn-primary box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
+                        <a href="{{ route('profile') }}" class="btn btn-primary box-footer" style="width: 100%;">Lihat Rincian<i class="fas fa-arrow-circle-right pl-1"></i></a>
                     </div>
                 </div>
             </div>

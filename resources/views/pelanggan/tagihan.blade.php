@@ -52,7 +52,7 @@
                         <tr>
                             <th>Nama</th>
                             <td class="px-3">:</td>
-                            <td>{{ ucfirst($detail_pelanggan->pelanggan->nama_pelanggan) }}</td>
+                            <td>{{ $detail_pelanggan->pelanggan->nama_pelanggan }}</td>
                         </tr>
                         <tr>
                             <th>Alamat</th>
@@ -79,46 +79,45 @@
             </div>
         </div>
         <div class="card-body">
-            <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
-                <thead>
-                    <tr style="width: 100%;">
-                        <th id="klik">No.</th>
-                        <th>ID Pelanggan</th>
-                        <th>Bulan</th>
-                        <th>Tahun</th>
-                        <th>Meter Awal</th>
-                        <th>Meter Akhir</th>
-                        <th>Jumlah Meter</th>
-                        <th>Tarif/kWh</th>
-                        <th>Jumlah Bayar</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php
-                    $i = 1
-                    @endphp
-                    @foreach($detail_tagihan as $data)
-                    <tr>
-                        <td> {{ $i++ }} </td>
-                        <td>{{ $data->pelanggan->nomor_meter }}</td>
-                        <td>{{ ucfirst($data->bulan) }}</td>
-                        <td>{{ $data->tahun }}</td>
-                        <td>{{ $data->penggunaan->meter_awal }}</td>
-                        <td>{{ $data->penggunaan->meter_akhir }}</td>
-                        <td>{{ $data->jumlah_meter }}</td>
-                        <td>Rp. {{ number_format($data->pelanggan->tarif->tarif_perkwh, 0, ',','.') }},-</td>
-                        <td>Rp. {{ number_format($data->jumlah_bayar, 0, ',','.') }},-</td>
-                        <td>
-                            <a href="{{ route('tagihan.detail', $data->id) }}" class="btn btn-primary">
-                                Bayar</i>
-                            </a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-                <tfoot></tfoot>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>ID Pelanggan</th>
+                            <th>Bulan</th>
+                            <th>Tahun</th>
+                            <th>Meter Awal</th>
+                            <th>Meter Akhir</th>
+                            <th>Jumlah Meter</th>
+                            <th>Tarif/kWh</th>
+                            <th>Jumlah Bayar</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($detail_tagihan as $data)
+                        <tr>
+                            <td> {{ $loop->iteration }} </td>
+                            <td>{{ $data->pelanggan->nomor_meter }}</td>
+                            <td>{{ $data->bulan }}</td>
+                            <td>{{ $data->tahun }}</td>
+                            <td>{{ $data->penggunaan->meter_awal }}</td>
+                            <td>{{ $data->penggunaan->meter_akhir }}</td>
+                            <td>{{ $data->jumlah_meter }}</td>
+                            <td>@currency($data->pelanggan->tarif->tarif_perkwh)</td>
+                            <td>@currency($data->jumlah_bayar)</td>
+                            <td>
+                                <a href="{{ route('tagihan.detail', $data->id) }}" class="btn btn-primary">
+                                    Bayar</i>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
         </div>
     </div>
 

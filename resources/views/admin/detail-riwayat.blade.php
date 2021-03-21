@@ -27,7 +27,7 @@
                         <tr>
                             <th class="pb-3">Nama Pelanggan</th>
                             <td class="px-3 pb-3">:</td>
-                            <td class="pb-3">{{ ucfirst($pembayaran->pelanggan->nama_pelanggan) }}</td>
+                            <td class="pb-3">{{ $pembayaran->pelanggan->nama_pelanggan }}</td>
                         </tr>
                         <tr>
                             <th class="pb-3">Alamat</th>
@@ -47,7 +47,7 @@
                         <tr>
                             <th class="pb-3">Bulan</th>
                             <td class="px-3 pb-3">:</td>
-                            <td class="pb-3">{{ ucfirst($pembayaran->bulan_bayar) }}</td>
+                            <td class="pb-3">{{ $pembayaran->bulan_bayar }}</td>
                         </tr>
                         <tr>
                             <th class="pb-3">Tahun</th>
@@ -72,27 +72,27 @@
                         <tr>
                             <th class="pb-3">Tarif/kWh</th>
                             <td class="px-3 pb-3">:</td>
-                            <td class="pb-3">Rp. {{ number_format($pembayaran->pelanggan->tarif->tarif_perkwh, 0, ',','.') }} ,-</td>
+                            <td class="pb-3">@currency($pembayaran->pelanggan->tarif->tarif_perkwh)</td>
                         </tr>
                         <tr>
                             <th class="pb-3">Jumlah Bayar</th>
                             <td class="px-3 pb-3">:</td>
-                            <td class="pb-3">Rp. {{ number_format($pembayaran->tagihan->jumlah_bayar, 0, ',','.') }} ,-</td>
+                            <td class="pb-3">@currency($pembayaran->tagihan->jumlah_bayar)</td>
                         </tr>
                         <tr>
                             <th class="pb-3">Biaya Admin</th>
                             <td class="px-3 pb-3">:</td>
-                            <td class="pb-3">Rp. {{ number_format($pembayaran->biaya_admin, 0, ',','.') }} ,-</td>
+                            <td class="pb-3">@currency($pembayaran->biaya_admin)</td>
                         </tr>
                         <tr>
                             <th class="pb-3">Total Bayar</th>
                             <td class="px-3 pb-3">:</td>
-                            <td class="pb-3">Rp. {{ number_format($pembayaran->total_bayar, 0, ',','.') }} ,-</td>
+                            <td class="pb-3">@currency($pembayaran->total_bayar)</td>
                         </tr>
                         <tr>
                             <th class="pb-3">Metode Pembayaran</th>
                             <td class="px-3 pb-3">:</td>
-                            <td class="pb-3">Bank {{ ucfirst($pembayaran->metode->nama_metode) }}</td>
+                            <td class="pb-3">{{ $pembayaran->metode->nama_metode }}</td>
                         </tr>
                         <tr>
                             <th class="pb-5">Bukti Pembayaran</th>

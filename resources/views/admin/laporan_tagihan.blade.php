@@ -83,42 +83,41 @@
             </div>
         </div>
         <div class=" card-body">
-            <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
-                <thead>
-                    <tr style="width: 100%;">
-                        <th id="klik">No.</th>
-                        <th>ID Pelanggan</th>
-                        <th>Nama Pelanggan</th>
-                        <th>Tarif/Daya</th>
-                        <th>Jumlah Meter</th>
-                        <th>Jumlah Bayar</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php
-                    $i = 1
-                    @endphp
-                    @foreach($tagihan as $data)
-                    <tr>
-                        <td> {{ $i++ }} </td>
-                        <td>{{ $data->pelanggan->nomor_meter }}</td>
-                        <td>{{ ucfirst($data->pelanggan->nama_pelanggan) }}</td>
-                        <td>{{ $data->pelanggan->tarif->kode_tarif }}</td>
-                        <td>{{ $data->jumlah_meter }}</td>
-                        <td>Rp. {{ number_format($data->jumlah_bayar, 0, ',','.') }},-</td>
-                        <td>
-                            @if ($data->status =='dibayar')
-                            <button class="btn btn-success">{{ ucfirst($data->status) }} </button>
-                            @else
-                            <button class="btn btn-danger">Belum Bayar </button>
-                            @endif
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-                <tfoot></tfoot>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>ID Pelanggan</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Tarif/Daya</th>
+                            <th>Jumlah Meter</th>
+                            <th>Jumlah Bayar</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($tagihan as $data)
+                        <tr>
+                            <td> {{ $loop->iteration }} </td>
+                            <td>{{ $data->pelanggan->nomor_meter }}</td>
+                            <td>{{ $data->pelanggan->nama_pelanggan }}</td>
+                            <td>{{ $data->pelanggan->tarif->kode_tarif }}</td>
+                            <td>{{ $data->jumlah_meter }}</td>
+                            <td>@currency($data->jumlah_bayar)</td>
+                            <td>
+                                @if ($data->status =='dibayar')
+                                <button class="badge badge-success">Dibayar</button>
+                                @else
+                                <button class="badge badge-danger">Belum Bayar </button>
+                                @endif
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
         </div>
     </div>
     @endisset

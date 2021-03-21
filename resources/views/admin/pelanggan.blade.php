@@ -6,7 +6,6 @@
 
 <div class="container-fluid mb-5">
     <h3 class=" py-3">Kelola Pelanggan</h3>
-
     <div class="card">
         <div class="card-header bg-white">
             <div class="row">
@@ -19,42 +18,39 @@
             </div>
         </div>
         <div class="card-body">
-            <table class="table table-bordered table-striped" id="datatables" width="100%">
-                <thead>
-                    <tr>
-                        <th id="klik">No.</th>
-                        <th>ID Pelanggan</th>
-                        <th>Nama Pelanggan</th>
-                        <th>Alamat</th>
-                        <th>Tarif/Daya</th>
-                        <th style="width: 12%;">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php
-                    $i = 1
-                    @endphp
-                    @foreach($data as $pelanggan)
-                    <tr>
-                        <td> {{ $i++ }} </td>
-                        <td>{{ $pelanggan->nomor_meter }}</td>
-                        <td>{{ ucfirst($pelanggan->nama_pelanggan) }}</td>
-                        <td>{{ $pelanggan->alamat }}</td>
-                        <td>{{ $pelanggan->tarif->kode_tarif  }}</td>
-                        <td><a href="{{ route('pelanggan.edit', $pelanggan->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                            <a href="{{ route('pelanggan.delete', $pelanggan->id) }}" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ?');"><i class="fas fa-trash"></i></a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-                <tfoot>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped" id="datatables" width="100%">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>ID Pelanggan</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Alamat</th>
+                            <th>Tarif/Daya</th>
+                            <th style="width: 12%;">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($data as $pelanggan)
+                        <tr>
+                            <td> {{ $loop->iteration }} </td>
+                            <td>{{ $pelanggan->nomor_meter }}</td>
+                            <td>{{ $pelanggan->nama_pelanggan }}</td>
+                            <td>{{ $pelanggan->alamat }}</td>
+                            <td>{{ $pelanggan->tarif->kode_tarif  }}</td>
+                            <td><a href="{{ route('pelanggan.edit', $pelanggan->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('pelanggan.delete', $pelanggan->id) }}" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ?');"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot>
 
-                </tfoot>
-            </table>
-
+                    </tfoot>
+                </table>
+            </div>
         </div>
     </div>
-
 
 </div>
 

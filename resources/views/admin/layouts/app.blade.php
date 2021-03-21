@@ -65,14 +65,9 @@
 
     <!-- Toggle Sidebar -->
     <script>
-        var row = document.querySelector('#klik');
         $(function() {
             $('#sidebarCollapse').on('click', function() {
                 $('#sidebar, #content').toggleClass('active');
-                setTimeout(function() {
-                    row.click();
-                    row.click();
-                }, 250);
             });
         });
     </script>
@@ -82,16 +77,20 @@
     <script src="/assets/datatables/datatables.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#datatables').DataTable({
-                "scrollX": true
-            });
+            $('#datatables').DataTable({});
+        })
+    </script>
+
+    <!-- End Datatables -->
+    <script>
+        $(document).ready(function() {
 
             $(document).on('change', '#pelanggan_id', function() {
-                // console.log('Data berubah');
+
 
                 var pelanggan = $(this).val();
                 var meter = $('#meter_awal');
-                // var op = "";
+
                 $.ajax({
                     type: 'get',
                     url: "{{ route('cari.meter') }}",
@@ -110,9 +109,24 @@
 
             });
         })
+
+        function previewImg() {
+            const sampul = document.querySelector('#foto');
+            const sampulLabel = document.querySelector('.custom-file-label');
+            const imgPreview = document.querySelector('.img-preview');
+
+            sampulLabel.textContent = sampul.files[0].name;
+
+            const fileSampul = new FileReader();
+            fileSampul.readAsDataURL(sampul.files[0]);
+
+            fileSampul.onload = function(e) {
+                imgPreview.src = e.target.result;
+            }
+        }
     </script>
 
-    <!-- End Datatables -->
+
 
 
     {{-- My Script --}}

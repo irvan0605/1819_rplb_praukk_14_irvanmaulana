@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RegisterController extends Controller
 {
@@ -49,7 +50,8 @@ class RegisterController extends Controller
 
         event(new Registered($user = $this->create($request->all())));
 
-        return redirect('login')->with('status', 'Registrasi Berhasil!');
+        Alert::success('Sukses', 'Registrasi Berhasil !');
+        return redirect('login');
     }
 
     /**
@@ -96,7 +98,7 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
             'nomor_telepon' => $data['nomor_telepon'],
-            'foto' => 'profile.jpg',
+            'foto' => 'img/profile.jpg',
             'level_id' => 3,
         ]);
     }

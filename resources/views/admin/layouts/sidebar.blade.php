@@ -11,7 +11,7 @@
     <ul class="nav flex-column mb-0" style="background-color: #3c256c;">
         <li class="nav-item">
             <div class="px-2 pb-1">
-                <a href="{{ route('dashboard') }}" class="nav-link text-white rounded {{Route::is('dashboard') ? 'font-weight-bold btn-primary' : ''}}">
+                <a href="{{ route('dashboard') }}" class="nav-link text-white rounded {{Route::is('dashboard') || Route::is('profile') ? 'font-weight-bold btn-primary' : ''}}">
                     <i class="fas fa-tachometer-alt mr-3 text-white fa-fw"></i>Dashboard
                 </a>
             </div>

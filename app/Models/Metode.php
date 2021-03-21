@@ -30,4 +30,12 @@ class Metode extends Model
     {
         return $this->hasOne(Pembayaran::class);
     }
+
+    /**
+     * Fungsi untuk membuat huruf pertama kapital.
+     */
+    public function getNamametodeAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }

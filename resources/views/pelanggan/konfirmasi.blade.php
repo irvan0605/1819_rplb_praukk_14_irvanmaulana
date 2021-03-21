@@ -28,7 +28,7 @@
                 <div class="form-group row">
                     <label for="" class="col-sm-6 col-md-5 col-lg-3 col-form-label">Nama Pelanggan</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" value="{{ ucfirst($data->pelanggan->nama_pelanggan) }}" readonly>
+                        <input type="text" class="form-control" value="{{ $data->pelanggan->nama_pelanggan }}" readonly>
                     </div>
                 </div>
 

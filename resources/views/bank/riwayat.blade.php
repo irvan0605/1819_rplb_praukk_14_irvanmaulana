@@ -16,43 +16,42 @@
             </div>
         </div>
         <div class=" card-body">
-            <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
-                <thead>
-                    <tr style="width: 100%;">
-                        <th id="klik">No.</th>
-                        <th>ID Pelanggan</th>
-                        <th>Nama Pelanggan</th>
-                        <th>Tanggal Bayar</th>
-                        <th>Bulan</th>
-                        <th>Tahun</th>
-                        <th>Jumlah Meter</th>
-                        <th>Total Bayar</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php
-                    $i = 1
-                    @endphp
-                    @foreach($pembayaran as $data)
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>ID Pelanggan</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Tanggal Bayar</th>
+                            <th>Bulan</th>
+                            <th>Tahun</th>
+                            <th>Jumlah Meter</th>
+                            <th>Total Bayar</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($pembayaran as $data)
 
-                    <tr>
-                        <td> {{ $i++ }} </td>
-                        <td> {{ $data->nomor_meter }} </td>
-                        <td> {{ ucfirst($data->nama_pelanggan) }} </td>
-                        <td> {{ $data->tanggal_pembayaran }} </td>
-                        <td> {{ ucfirst($data->bulan_bayar) }} </td>
-                        <td> {{ $data->tahun_bayar }} </td>
-                        <td> {{ $data->jumlah_meter }} </td>
-                        <td> Rp. {{ number_format($data->total_bayar, 0, ',','.') }},-</td>
-                        <td>
-                            <a href="{{ route('riwayat.detail', $data->id) }}" class="btn btn-primary">Detail</a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-                <tfoot></tfoot>
-            </table>
+                        <tr>
+                            <td> {{ $loop->iteration }} </td>
+                            <td> {{ $data->nomor_meter }} </td>
+                            <td> {{ ucfirst($data->nama_pelanggan) }} </td>
+                            <td> {{ $data->tanggal_pembayaran }} </td>
+                            <td> {{ ucfirst($data->bulan_bayar) }} </td>
+                            <td> {{ $data->tahun_bayar }} </td>
+                            <td> {{ $data->jumlah_meter }} </td>
+                            <td> @currency($data->total_bayar)</td>
+                            <td>
+                                <a href="{{ route('riwayat.detail', $data->id) }}" class="btn btn-primary">Detail</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
         </div>
     </div>
 

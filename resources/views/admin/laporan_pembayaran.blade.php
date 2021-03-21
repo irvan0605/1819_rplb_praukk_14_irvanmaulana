@@ -83,38 +83,37 @@
             </div>
         </div>
         <div class=" card-body">
-            <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
-                <thead>
-                    <tr style="width: 100%;">
-                        <th id="klik">No.</th>
-                        <th>ID Pelanggan</th>
-                        <th>Nama Pelanggan</th>
-                        <th>Tanggal Bayar</th>
-                        <th>Tagihan PLN</th>
-                        <th>Biaya Admin</th>
-                        <th>Total Bayar</th>
-                        <th>Metode Bayar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php
-                    $i = 1
-                    @endphp
-                    @foreach($pembayaran as $data)
-                    <tr>
-                        <td> {{ $i++ }} </td>
-                        <td>{{ $data->pelanggan->nomor_meter }}</td>
-                        <td>{{ ucfirst($data->pelanggan->nama_pelanggan) }}</td>
-                        <td>{{ $data->tanggal_pembayaran }}</td>
-                        <td>Rp. {{ number_format($data->tagihan->jumlah_bayar, 0, ',','.') }},-</td>
-                        <td>Rp. {{ number_format($data->biaya_admin, 0, ',','.') }},-</td>
-                        <td>Rp. {{ number_format($data->total_bayar, 0, ',','.') }},-</td>
-                        <td>Bank {{ ucfirst($data->metode->nama_metode) }}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-                <tfoot></tfoot>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped" id="datatables" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>ID Pelanggan</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Tanggal Bayar</th>
+                            <th>Tagihan PLN</th>
+                            <th>Biaya Admin</th>
+                            <th>Total Bayar</th>
+                            <th>Metode Bayar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($pembayaran as $data)
+                        <tr>
+                            <td> {{ $loop->iteration }} </td>
+                            <td>{{ $data->pelanggan->nomor_meter }}</td>
+                            <td>{{ $data->pelanggan->nama_pelanggan }}</td>
+                            <td>{{ $data->tanggal_pembayaran }}</td>
+                            <td>@currency($data->tagihan->jumlah_bayar)</td>
+                            <td>@currency($data->biaya_admin)</td>
+                            <td>@currency($data->total_bayar)</td>
+                            <td>{{ $data->metode->nama_metode }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
         </div>
     </div>
     @endisset

@@ -18,7 +18,7 @@
                 <div class="form-group row">
                     <label for="" class="col-sm-6 col-lg-5 col-form-label text-left">Bulan Penggunaan</label>
                     <div class="col-md-6 col-lg-7">
-                        <input type="text" class="form-control" name="bulan_bayar" value="{{ ucfirst($data->bulan) }}" readonly>
+                        <input type="text" class="form-control" name="bulan_bayar" value="{{ $data->bulan }}" readonly>
                     </div>
                 </div>
                 <div class="form-group row">
