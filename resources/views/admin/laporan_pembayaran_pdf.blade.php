@@ -2,34 +2,17 @@
 
 <head>
 
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td,
-        th {
-            text-align: center;
-            padding: 5px;
-        }
-
-        h2 {
-            font-size: 18px;
-            text-align: center
-        }
-    </style>
-
-
     <title>Cetak Laporan Pembayaran</title>
+
+    <link rel="stylesheet" href="{{ public_path('/assets/bootstrap/css/bootstrap.min.css') }}">
 </head>
 
 <body>
 
 
-    <h2>Laporan Pembayaran Bulan {{ ucfirst($bulan) }} Tahun {{ $tahun }}</h2>
+    <h2 class="text-center mb-2">Laporan Pembayaran Bulan {{ ucfirst($bulan) }} Tahun {{ $tahun }}</h2>
 
-    <table border="2">
+    <table class="table table-bordered table-striped">
 
         <tr>
             <th>No.</th>
@@ -42,6 +25,7 @@
             <th>Metode Bayar</th>
         </tr>
 
+
         @foreach($pembayaran as $data)
         <tr>
             <td> {{ $loop->iteration }} </td>
@@ -53,7 +37,9 @@
             <td>@currency($data->total_bayar)</td>
             <td>{{ $data->metode->nama_metode }}</td>
         </tr>
-        @endforeach
+
+
+
 
     </table>
 

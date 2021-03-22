@@ -2,34 +2,18 @@
 
 <head>
 
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
 
-        td,
-        th {
-            text-align: center;
-            padding: 5px;
-        }
+    <link rel="stylesheet" href="{{ public_path('/assets/bootstrap/css/bootstrap.min.css') }}">
 
-        h2 {
-            font-size: 18px;
-            text-align: center
-        }
-    </style>
-
-
-    <title>Cetak Laporan Tagihan</title>z
+    <title>Cetak Laporan Tagihan</title>
 </head>
 
 <body>
 
 
-    <h2>Laporan Tagihan Bulan {{ ucfirst($bulan) }} Tahun {{ $tahun }}</h2>
+    <h3 class="text-center mb-2">Laporan Tagihan Bulan {{ ucfirst($bulan) }} Tahun {{ $tahun }}</h3>
 
-    <table border="2">
+    <table class="table table-bordered table-striped">
 
         <tr>
             <th>No.</th>
@@ -50,17 +34,16 @@
             <td>{{ $data->jumlah_meter }}</td>
             <td>@currency($data->jumlah_bayar)</td>
             <td>
-                @if($data->status =='dibayar')
-                Dibayar
+                @if ($data->status =='dibayar')
+                <button class="badge badge-success">Dibayar</button>
                 @else
-                Belum Bayar
+                <button class="badge badge-danger">Belum Bayar </button>
                 @endif
             </td>
         </tr>
         @endforeach
 
     </table>
-
 
 </body>
 
